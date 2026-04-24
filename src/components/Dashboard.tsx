@@ -164,7 +164,7 @@ export default function Dashboard({
 
   return (
     <div className="min-h-screen bg-cream">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-8">
         <Header
           isAuthenticated={isAuthenticated}
           onRefreshRates={handleRefreshRates}
@@ -172,17 +172,17 @@ export default function Dashboard({
         />
 
         {/* HERO STATS */}
-        <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10 anim-up">
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 sm:mb-10 anim-up">
           <div className="md:col-span-2 bg-white border border-stone-200 rounded-md p-6 relative overflow-hidden">
             <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
             <div className="relative">
               <div className="text-[11px] uppercase tracking-widest text-neutral-500 mb-2">
                 {periodLabel[filter.kind]} · collected
               </div>
-              <div className="font-display text-6xl md:text-7xl num leading-none text-forest">
+              <div className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl num leading-none text-forest">
                 {fmtMoney(totalUSD, "USD")}
               </div>
-              <div className="flex items-center gap-3 mt-4 text-xs text-neutral-500">
+              <div className="flex flex-wrap items-center gap-2 mt-3 sm:mt-4 text-xs text-neutral-500">
                 <span>
                   {filteredTx.length} payment{filteredTx.length === 1 ? "" : "s"}
                 </span>
@@ -213,7 +213,7 @@ export default function Dashboard({
         </section>
 
         {/* FILTER BAR */}
-        <section className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <section className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 sm:mb-6">
           <div className="flex items-center gap-1 flex-wrap">
             {(
               [
@@ -227,11 +227,10 @@ export default function Dashboard({
               <button
                 key={opt.k}
                 onClick={() => setFilter({ ...filter, kind: opt.k })}
-                className={`px-3 py-1.5 text-xs rounded-md transition border ${
-                  filter.kind === opt.k
+                className={`px-3 py-1.5 text-xs rounded-md transition border ${filter.kind === opt.k
                     ? "text-white border-transparent bg-forest"
                     : "bg-white text-neutral-700 border-stone-200 hover:border-stone-400"
-                }`}
+                  }`}
               >
                 {opt.l}
               </button>
@@ -256,18 +255,18 @@ export default function Dashboard({
             )}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
             <div className="relative">
               <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-400" />
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search members"
-                className="pl-8 pr-3 py-1.5 text-xs bg-white border border-stone-200 rounded-md w-44 ring-focus"
+                className="pl-8 pr-3 py-1.5 text-xs bg-white border border-stone-200 rounded-md w-full sm:w-44 ring-focus"
               />
             </div>
             {isAuthenticated && (
-              <>
+              <div className="flex items-center gap-2">
                 <button
                   onClick={() => setShowAddMember(true)}
                   className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium border border-stone-300 rounded-md hover:bg-stone-50"
@@ -281,7 +280,7 @@ export default function Dashboard({
                 >
                   <Plus size={12} /> Record payment
                 </button>
-              </>
+              </div>
             )}
           </div>
         </section>
@@ -393,9 +392,8 @@ export default function Dashboard({
       {toast && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 anim-up">
           <div
-            className={`px-4 py-3 rounded-md shadow-lg flex items-center gap-2 text-sm font-medium ${
-              toast.kind === "err" ? "bg-red-900 text-white" : "bg-neutral-900 text-white"
-            }`}
+            className={`px-4 py-3 rounded-md shadow-lg flex items-center gap-2 text-sm font-medium ${toast.kind === "err" ? "bg-red-900 text-white" : "bg-neutral-900 text-white"
+              }`}
           >
             {toast.kind === "err" ? <AlertCircle size={16} /> : <Check size={16} />}
             {toast.msg}

@@ -85,7 +85,7 @@ export default function TransactionsPanel({
                   </div>
                 </div>
                 {isAdmin && (
-                  <div className="flex gap-1 mt-2 opacity-0 group-hover:opacity-100 transition">
+                  <div className="flex gap-1 mt-2 transition opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
                     <button
                       onClick={() => onEdit(t)}
                       className="text-[11px] text-neutral-500 hover:text-neutral-900 px-2 py-0.5 rounded hover:bg-stone-100"

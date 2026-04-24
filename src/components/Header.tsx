@@ -28,14 +28,14 @@ export default function Header({
     });
 
   return (
-    <header className="flex items-center justify-between mb-10 pb-6 border-b border-stone-200">
+    <header className="flex items-center justify-between mb-6 sm:mb-10 pb-4 sm:pb-6 border-b border-stone-200">
       <div className="flex items-center gap-3">
         <div className="h-9 w-9 rounded-sm flex items-center justify-center bg-forest">
           <Wallet size={18} className="text-white" />
         </div>
         <div>
           <div className="font-display text-2xl italic leading-none text-forest">Treasury</div>
-          <div className="text-[11px] uppercase tracking-widest text-neutral-500 mt-1">
+          <div className="text-[11px] uppercase tracking-widest text-neutral-500 mt-1 hidden sm:block">
             Team contributions ledger
           </div>
         </div>

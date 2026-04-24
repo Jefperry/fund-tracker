@@ -92,9 +92,8 @@ export default function MembersTable({
               return (
                 <tr
                   key={r.id}
-                  className={`border-b border-stone-100 last:border-0 hover:bg-stone-50/60 transition group ${
-                    i === 0 && r.totalUSD > 0 ? "bg-amber-50/30" : ""
-                  }`}
+                  className={`border-b border-stone-100 last:border-0 hover:bg-stone-50/60 transition group ${i === 0 && r.totalUSD > 0 ? "bg-amber-50/30" : ""
+                    }`}
                 >
                   <td className="px-5 py-4">
                     <div className="flex items-center gap-3">
@@ -143,7 +142,7 @@ export default function MembersTable({
                   <td className="px-3 py-4 text-center text-xs text-neutral-500 num">{r.count}</td>
                   {isAdmin && (
                     <td className="px-3 py-4">
-                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition">
+                      <div className="flex items-center gap-1 transition opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
                         <button
                           onClick={() => onEdit(r)}
                           className="p-1.5 text-neutral-400 hover:text-neutral-900 hover:bg-stone-100 rounded"
