@@ -107,7 +107,7 @@ export default function LoginPage() {
 
         <p className="text-center text-xs text-neutral-400 mt-6">
           Not an admin? The dashboard is{" "}
-          <a href="/" className="underline hover:text-neutral-700">
+          <a href="/view" className="underline hover:text-neutral-700">
             viewable here
           </a>{" "}
           (read-only).
